@@ -1,0 +1,19 @@
+BARBERÍA ZURDO
+INSTRUCCIONES DE EJECUCIÓN
+
+1. Descomprime la carpeta del proyecto.
+2. Abre la carpeta en Visual Studio Code.
+3. Comprueba que index.html, estilos.css y script.js estén en la misma carpeta.
+4. Comprueba que la carpeta imagenes esté junto a esos archivos y contenga las imágenes de los servicios.
+5. Abre index.html con Live Server (clic derecho → Open with Live Server).
+6. Para cargar los datos de ejemplo, ve a “Guardar y recuperar datos”, pulsa “Importar JSON” y selecciona datosejemplo.json.
+
+Guardar y recuperar información
+- Los cambios se guardan automáticamente en el almacenamiento local del navegador.
+- Al abrir la aplicación otra vez en el mismo navegador, los datos guardados deberían recuperarse.
+- “Exportar JSON” descarga una copia de los clientes y citas.
+- “Importar JSON” permite recuperar datos desde un archivo JSON.
+- “Exportar reporte CSV” descarga un reporte de citas que puede abrirse con una hoja de cálculo.
+
+Importante
+El almacenamiento local no sincroniza automáticamente los datos con otros navegadores o dispositivos. Mantén la carpeta imagenes y sus archivos para que las imágenes se muestren correctamente.

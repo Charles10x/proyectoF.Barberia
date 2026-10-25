@@ -1,0 +1,13 @@
+{
+  "clientes": [
+    { "id": 1, "nombre": "Carlos Mamani", "telefono": "76073808", "correo": "carlos@mail.com", "esVip": true },
+    { "id": 2, "nombre": "José Rojas", "telefono": "71234567", "correo": "", "esVip": false },
+    { "id": 3, "nombre": "María Flores", "telefono": "69876543", "correo": "maria@mail.com", "esVip": false }
+  ],
+  "citas": [
+    { "id": 1, "clienteId": 1, "barbero": "Luis Velasquez", "servicio": "Taper Fade", "fecha": "2026-10-26", "hora": "10:00", "total": 42.5, "notas": "", "estado": "Pendiente" },
+    { "id": 2, "clienteId": 2, "barbero": "Charles Cedeño", "servicio": "Mullet", "fecha": "2026-10-26", "hora": "10:00", "total": 55, "notas": "Foto de referencia", "estado": "Pendiente" },
+    { "id": 3, "clienteId": 3, "barbero": "Oscar Perez", "servicio": "Tinte", "fecha": "2026-10-27", "hora": "15:00", "total": 115, "notas": "", "estado": "Pendiente" },
+    { "id": 4, "clienteId": 2, "barbero": "Josep Cazas", "servicio": "Barba", "fecha": "2026-10-22", "hora": "18:00", "total": 25, "notas": "", "estado": "Completada" }
+  ]
+}

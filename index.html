@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barbería ZURDO</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <header>
+        <h1>BARBERÍA ZURDO ✂️</h1>
+        <p>Cortes que definen tu estilo</p>
+        <nav>
+            <a href="#barberos">Barberos</a>
+            <a href="#clientes">Clientes</a>
+            <a href="#citas">Citas</a>
+            <a href="#archivos">Archivos</a>
+        </nav>
+    </header>
+<!-- Aquí salen los mensajes de éxito o error -->
+    <p id="mensaje"></p>
+    <div class="contenedor">
+<!-- BARBEROS -->
+        <section id="barberos">
+            <h2>Nuestros barberos</h2>
+            <table>
+                <thead>
+                    <tr><th>Nombre</th><th>Teléfono</th><th>Especialidad</th></tr>
+                </thead>
+                <tbody id="listaBarberos"></tbody>
+            </table>
+            <p>📍 Av. Mutualista &nbsp;|&nbsp; 🕘 Atención: 9:00 a 23:00</p>
+        </section>
+<!-- CLIENTES -->
+        <section id="clientes">
+            <h2>Clientes</h2>
+            <h3 id="tituloCliente">Registrar cliente</h3>
+            <form id="formCliente">
+                <label for="nombre">Nombre completo</label>
+                <input type="text" id="nombre" required minlength="3" maxlength="60" placeholder="Ej: Juan Pérez">
+                <small id="errorNombre" class="error"></small>
+                <label for="telefono">Teléfono (8 dígitos, empieza con 6 o 7)</label>
+                <input type="text" id="telefono" required pattern="[67][0-9]{7}" maxlength="8" placeholder="Ej: 76073808">
+                <small id="errorTelefono" class="error"></small>
+                <label for="correo">Correo (opcional)</label>
+                <input type="email" id="correo" placeholder="correo@ejemplo.com">
+                <small id="errorCorreo" class="error"></small>
+                <label for="tipo">Tipo de cliente</label>
+                <select id="tipo">
+                    <option value="normal">Normal</option>
+                    <option value="vip">VIP (15% de descuento)</option>
+                </select>
+                
+                <button type="submit" id="btnCliente">Registrar cliente</button>
+                <button type="button" id="btnCancelarCliente" class="gris" hidden>Cancelar</button>
+            </form>
+            <h3>Lista de clientes</h3>
+            <input type="text" id="buscarCliente" placeholder="Buscar cliente por nombre o teléfono...">
+            <table>
+                <thead>
+                    <tr><th>ID</th><th>Nombre</th><th>Teléfono</th><th>Tipo</th><th>Acciones</th></tr>
+                </thead>
+                <tbody id="listaClientes"></tbody>
+            </table>
+        </section>
+<!-- CITAS -->
+<section id="citas">
+    <h2>Citas</h2>
+
+    <div class="reserva-contenido">
+
+        <!-- FORMULARIO DE RESERVA -->
+        <div class="reserva-formulario">
+
+            <h3 id="tituloCita">Reservar cita</h3>
+
+            <form id="formCita">
+                <label for="citaCliente">Cliente</label>
+                <select id="citaCliente" required></select>
+
+                <label for="citaBarbero">Barbero</label>
+                <select id="citaBarbero" required></select>
+
+                <label for="citaServicio">Servicio</label>
+                <select id="citaServicio" required></select>
+
+                <label for="citaFecha">Fecha</label>
+                <input type="date" id="citaFecha" required>
+
+                <label for="citaHora">
+                    Hora (solo horarios libres del barbero)
+                </label>
+                <select id="citaHora" required>
+                    <option value="">
+                        Elige barbero y fecha
+                    </option>
+                </select>
+
+                <label for="citaNotas">Notas (opcional)</label>
+                <input
+                    type="text"
+                    id="citaNotas"
+                    maxlength="100"
+                    placeholder="Ej: llevar foto de referencia"
+                >
+
+                <p id="resumenPrecio">Total: Bs 0</p>
+
+                <button type="submit" id="btnCita">
+                    Reservar cita
+                </button>
+
+                <button
+                    type="button"
+                    id="btnCancelarCita"
+                    class="gris"
+                    hidden
+                >
+                    Cancelar
+                </button>
+            </form>
+
+        </div>
+
+        <!-- IMAGEN DEL SERVICIO -->
+    <aside class="vista-servicio">
+
+        <img id="imagenServicio" src="imagenes/barberia.jpg" alt="Imagen de la barbería">
+        <h3 id="nombreServicioImagen">Elige un servicio</h3>
+
+    </aside>
+
+    </div>
+    <!-- LISTA DE CITAS -->
+    <h3>Lista de citas</h3>
+
+    <input
+        type="text"
+        id="buscarCita"
+        placeholder="Buscar por cliente, barbero o servicio"
+    >
+
+    <select id="filtroEstado">
+        <option value="">Todos los estados</option>
+        <option value="Pendiente">Pendiente</option>
+        <option value="Completada">Completada</option>
+        <option value="Cancelada">Cancelada</option>
+    </select>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Cliente</th>
+                <th>Barbero</th>
+                <th>Servicio</th>
+                <th>Fecha</th>
+                <th>Hora</th>
+                <th>Total</th>
+                <th>Estado</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+
+        <tbody id="listaCitas"></tbody>
+    </table>
+
+    <p id="ingresos"></p>
+</section>
+<!-- ARCHIVOS -->
+        <section id="archivos">
+            <h2>Guardar y recuperar datos</h2>
+            <button type="button" id="btnExportar">Exportar JSON</button>
+            <button type="button" id="btnCSV">Exportar reporte CSV</button>
+            <label for="archivoImportar" class="boton-label">Importar JSON</label>
+            <input type="file" id="archivoImportar" accept=".json" hidden>
+        </section>
+    </div>
+    <footer>
+        <p></p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
